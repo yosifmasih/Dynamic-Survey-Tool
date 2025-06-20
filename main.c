@@ -31,6 +31,7 @@ extern ADC_HandleTypeDef hadc1;
 extern I2C_HandleTypeDef hi2c1;
 
 //ADXL357 I2C TESTING CODE START
+/*
 #define ADXL357_I2C_ADDR     (0x1F << 1)  // 7-bit address shifted for HAL
 #define ADXL357_REG_DEVID_AD 0x00
 #define ADXL357_REG_FILTER   0x2C
@@ -51,7 +52,7 @@ void ADXL357_I2C_WriteRegister(uint8_t reg, uint8_t value) {
         printf("Failed to write reg 0x%02X\r\n", reg);
     }
 }
-
+*/
 //ADXL357 I2C TESTING CODE END
 
 //ADXL357 SPI TESTING CODE START
@@ -462,7 +463,7 @@ ADXL357_ReadDeviceID();
   //WORKING STEVALMKI181V1 CODE START
 
   // === Calibrate LIS2MDL Zero-Offset ===
-
+/*
   int16_t offset_x = 0, offset_y = 0, offset_z = 0;
   #define CALIB_SAMPLES 50
   int32_t sum_x = 0, sum_y = 0, sum_z = 0;
@@ -482,7 +483,7 @@ ADXL357_ReadDeviceID();
   offset_z = sum_z / CALIB_SAMPLES;
 
   printf("Offset calibrated: X=%d Y=%d Z=%d\r\n", offset_x, offset_y, offset_z);
-
+*/
 //WORKING STEVALMKI181V1 CODE END
 
 
@@ -525,12 +526,12 @@ ADXL357_ReadDeviceID();
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  HAL_ADC_Start(&hadc1); //CRUCIAL FOR ADXL356 COM
+  //HAL_ADC_Start(&hadc1); //CRUCIAL FOR ADXL356 COM
   while (1)
   {
 
 	  //ADXL356 WORKING CODE START!!!
-
+/*
 	  HAL_ADC_Stop(&hadc1);                          // Ensure previous conversion is halted
 	  HAL_ADC_Start(&hadc1);                         // Start ADC fresh
 	  uint16_t x_raw = 0, y_raw = 0, z_raw = 0;
@@ -563,7 +564,7 @@ ADXL357_ReadDeviceID();
 	      printf("X: %.3f V (%.2f g)\tY: %.3f V (%.2f g)\tZ: %.3f V (%.2f g)\r\n",
 	              x_voltage, x_accel_g, y_voltage, y_accel_g, z_voltage, z_accel_g);
 	  HAL_Delay(200);
-
+*/
 
 	  //ADXL356 WORKING CODE END!!!
 
@@ -582,7 +583,7 @@ ADXL357_ReadDeviceID();
 	  //ADXL312 WORKING CODE END!!!
 
 	  //WORKING STEVALMKI181V1 CODE START!!!
-
+/*
 	  int16_t mag_x = 0, mag_y = 0, mag_z = 0;
 	  uint8_t data[6] = {0};
 
@@ -604,7 +605,7 @@ ADXL357_ReadDeviceID();
 	  printf("Magnetic Field [µT] -> X: %.2f\tY: %.2f\tZ: %.2f\r\n",
 			  mag_x_uT, mag_y_uT, mag_z_uT);
 	  HAL_Delay(200);  // Print every 200 ms
-
+*/
 	  //WORKING STEVALMKI181V1 CODE END!!!
 
 	  //STEVAL
